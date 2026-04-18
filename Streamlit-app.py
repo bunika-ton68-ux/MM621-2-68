@@ -49,9 +49,9 @@ def train_model():
     df = pd.read_csv('customer_churn_mock.csv')
 
   #เอาทุกวันยกเว้น churn column เดียว
-  EXPECTED_FEATURES = ['Age', 'Tenure_Months', 'Monthly_Charge', 'Support_Tickets']
+ 
     
-  X = df[[EXPECTED_FEATURES]]
+  X = df[['Age', 'Tenure_Months', 'Monthly_Charge', 'Support_Tickets']]
   y = df['Churn']
 
   #รันโมเดล
@@ -83,8 +83,6 @@ input_data = pd.DataFrame({
     'Monthly_Charge': [charge],
     'Support_Tickets': [tickets]
 })
-
-input_data = input_data[EXPECTED_FEATURE]
 
 prediction = model.predict(input_data)
 probability = model.predict_proba(input_data)[0][1]
